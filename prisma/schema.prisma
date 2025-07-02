@@ -22,6 +22,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  trips         Trip[]
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -64,5 +65,20 @@ model VerificationToken {
   expires    DateTime
  
   @@id([identifier, token])
+}
+
+model Trip {
+  id             String          @id @default(cuid())
+  title          String
+  description    String
+  imageurl       String?
+  startDate      DateTime
+  endDate        DateTime
+  userId         String
+
+  user           User @relation(fields: [userId], references: [id])
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
  
