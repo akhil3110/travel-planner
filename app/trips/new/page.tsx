@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const  NewTrip= () => {
 
-    const [isPending,startTransition] = useTransition()
+    const [isPending,Transition] = useTransition()
     const [imageUrl,setImageUrl] = useState<string | null>(null)
 
     return ( 
@@ -24,7 +24,7 @@ const  NewTrip= () => {
                                 if(imageUrl){
                                     formData.append("imageurl",imageUrl)
                                 }
-                                startTransition(() => {
+                                Transition(() => {
                                     createTrip(formData)
                                 })
                             }
