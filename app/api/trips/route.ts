@@ -29,6 +29,7 @@ export async function GET () {
             }
         });
 
+        // @ts-expect-error: no check
         const tranformedLocation = await Promise.all(locations.map(async(loc) =>{
             const geoCodeResult = await getCountryFromCordinates(loc.lat,loc.lng)
             
