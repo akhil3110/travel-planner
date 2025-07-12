@@ -54,7 +54,7 @@ export default function GlobePage() {
                             <div className="p-6">
                                 <h2 className="text-2xl font-semibold mb-4">
                                     {" "}
-                                    See Where you've  been ...
+                                    See Where you`&apos;`ve  been ...
                                 </h2>
                                 <div className="h-[600px] w-full relative">
                                     {isLoading ? (
@@ -81,7 +81,7 @@ export default function GlobePage() {
                             </div>
                         </div>
 
-                        <div className='lg:col-span-1'>
+                        <div className="lg:col-span-1">
                             <Card className=' sticky top-8'>
                                 <CardHeader>
                                     <CardTitle>

@@ -17,7 +17,8 @@ export async function getCountryFromCordinates (lat: number,lng:number): Promise
 
     const result = data.results[0]
 
-    const countryComponent = result.address_components.find((comp: any) => comp.types.includes("country"))
+    //@ts-expect-error: no check
+    const countryComponent = result.address_components.find((comp) => comp.types.includes("country"))
 
     return {
         country: countryComponent.long_name || "Unknown",
