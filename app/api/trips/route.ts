@@ -3,6 +3,16 @@ import { getCountryFromCordinates } from "@/lib/actions/geoCode";
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
+interface LocType {
+    locationTitle: string,
+    lat: number,
+    lng: number,
+    trip: {
+        title: string
+    }
+
+}
+
 export async function GET () {
     try {
         
@@ -29,9 +39,9 @@ export async function GET () {
             }
         });
 
-        // @ts-expect-error: no check
-        const tranformedLocation = await Promise.all(locations.map(async(loc) =>{
-            const geoCodeResult = await getCountryFromCordinates(loc.lat,loc.lng)
+        
+        const tranformedLocation = await Promise.all(locations.map(async(loc:LocType) =>{
+        const geoCodeResult = await getCountryFromCordinates(loc.lat,loc.lng)
             
             return {
                 name: `${loc.trip.title} - ${geoCodeResult.formattedAddress}`,
