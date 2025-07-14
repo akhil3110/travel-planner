@@ -8,4 +8,5 @@ export const login = async() => {
 
 export const logOut =  async() =>{
     await signOut({redirectTo: "/"})
-}  
+}
+
